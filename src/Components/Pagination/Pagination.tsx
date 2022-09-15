@@ -4,14 +4,14 @@ import {periodsInfoType} from '../../data_context';
 import PaginationButton from './PaginationButton/PaginationButton';
 
 
-type propsType = {
+export type propsPaginationType = {
     currentPage: number
     pagesCount: number
     currentPeriod: periodsInfoType
     changePeriod: (value: number) => void
 }
 
-const Pagination = ({currentPage, pagesCount, changePeriod}: propsType) => {
+const Pagination = ({currentPage, pagesCount, changePeriod}: propsPaginationType) => {
 
 
     const onClickNext = () => changePeriod(currentPage + 1)

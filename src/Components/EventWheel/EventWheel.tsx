@@ -5,6 +5,7 @@ import {coordsType, findAllPointsCoords, getRadius} from '../../utils/utils-func
 import gsap from 'gsap';
 import MotionPathPlugin from 'gsap/MotionPathPlugin'
 import Point from './Point/Point';
+import Pagination from "../Pagination/Pagination";
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -17,7 +18,7 @@ type propsType = {
 }
 
 
-const EventWheel = ({data, periodsNumbers, currentPage, ...props}: propsType) => {
+const EventWheel = ({data, periodsNumbers, currentPage, changePeriod, ...props}: propsType) => {
 
     const [radius, setRadius] = useState<number>(0)
     const [pointsCoords, setPointsCoords] = useState<coordsType[]>([])
@@ -57,9 +58,13 @@ const EventWheel = ({data, periodsNumbers, currentPage, ...props}: propsType) =>
                     key={p.x + p.y + index}
                     coords={p}
                     category={data.category}
-                    changePeriod={props.changePeriod}
+                    changePeriod={changePeriod}
                     currentPeriodNumber={currentPage}/>
                 </div>)}
+            </div>
+            <div className={s.pageContainer}>
+                <Pagination currentPage={currentPage} pagesCount={periodsNumbers} currentPeriod={data}
+                            changePeriod={changePeriod}/>
             </div>
         </div>
     );

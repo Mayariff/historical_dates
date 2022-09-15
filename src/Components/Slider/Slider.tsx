@@ -6,7 +6,7 @@ import {Navigation, Pagination, Scrollbar, Thumbs} from 'swiper';
 // Import Swiper styles
 import 'swiper/scss';
 import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
+import "swiper/scss/pagination";
 import 'swiper/scss/scrollbar';
 
 import './sliderPagination.scss'
@@ -18,10 +18,11 @@ type propsType = {
     items: eventType[]
     currentPage?: number
     isDesctopVertion: boolean
+    category?: string
 }
 
 
-const Slider = ({items, isDesctopVertion, ...props}: propsType) => {
+const Slider = ({items, isDesctopVertion, category, ...props}: propsType) => {
 
     const [currentPage, setCurrentPage] = useState(1)
     let pageNumbers = Math.ceil(items.length / 3)
@@ -50,12 +51,14 @@ const Slider = ({items, isDesctopVertion, ...props}: propsType) => {
 
     return (
         <div className={s.container} ref={slider}>
+            {!isDesctopVertion && <span className={s.category}>{category}</span>}
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar, Thumbs]}
                 slidesPerView={isDesctopVertion ? 3 : 2}
                 spaceBetween={20}
                 thumbs={{swiper: thumbsSwiper}}
-                pagination={!isDesctopVertion}>
+                //pagination={!isDesctopVertion}
+            >
                 {isDesctopVertion &&
                     <SliderButton type={'prev'} changeCurrentPage={clickNext} hidden={currentPage === 1}/>}
 

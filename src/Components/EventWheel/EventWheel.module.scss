@@ -5,6 +5,8 @@
 .container {
   width: 100%;
   @include flexStyle(column, center, center);
+  margin-bottom: 100px;
+  position: relative;
 
   .circle {
     position: relative;
@@ -15,5 +17,11 @@
     @media screen and (max-width: 1018px) {
       @include circle(360px);
     }
+  }
+
+  .pageContainer {
+    position: absolute;
+    bottom: 0;
+    left: 30px;
   }
 }

@@ -3,12 +3,11 @@
 
 .pagination {
   position: relative;
-  top: -50px;
-  margin-left: 3%;
   width: 120px;
   @media (max-width: 768px) {
     position: absolute;
-    top: 88%;
+    top: -16px;
+    left: -100px;
     margin: 0;
     width: 56px;
     height: 56px;

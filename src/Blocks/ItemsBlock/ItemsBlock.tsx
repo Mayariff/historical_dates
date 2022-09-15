@@ -5,7 +5,7 @@ import s from './ItemsBlock.module.scss';
 import AccentText from '../../Components/AccentText/AccentText';
 import Slider from '../../Components/Slider/Slider';
 import EventWheel from '../../Components/EventWheel/EventWheel';
-import Pagination from "../../Components/Pagination/Pagination";
+import SliderBar from '../../Components/SliderBar/SliderBar';
 
 type propsType = {
     data: periodsInfoType[]
@@ -37,24 +37,24 @@ const ItemsBlock = ({data, title}: propsType) => {
 
     return (
         <VectorContainer title={title}>
+            {!isDesctopVertion && <SliderBar currentPage={currentPage}
+                                             pagesCount={data.length}
+                                             currentPeriod={currentPeriod}
+                                             changePeriod={setCurrentPage} data={data}/>}
             <div className={s.container}>
                 <AccentText firstWord={currentPeriod.startPeriod}
                             secondWord={currentPeriod.endPeriod}/>
 
-                {isDesctopVertion &&
+                {isDesctopVertion && <>
                     <EventWheel data={currentPeriod}
                                 periodsNumbers={data.length}
                                 changePeriod={setCurrentPage}
                                 currentPage={currentPage}
                     />
+                </>
                 }
-                <div className={s.leftContainer}>
-                    <Pagination currentPage={currentPage}
-                                pagesCount={data.length}
-                                currentPeriod={currentPeriod}
-                                changePeriod={setCurrentPage}/>
-                </div>
                 <Slider items={currentPeriod.events}
+                        category={currentPeriod.category}
                         currentPage={currentPage}
                         isDesctopVertion={isDesctopVertion}/>
             </div>

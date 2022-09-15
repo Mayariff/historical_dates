@@ -1,0 +1,23 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.container {
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  bottom: 0;
+  left: 37%;
+  @include flexStyle(row, space-around, center);
+
+  .point {
+    @include sizeBlock(6px, 6px);
+    border-radius: 50%;
+    background-color: $mainTitleColor;
+    opacity: 0.4;
+  }
+
+  .active {
+    opacity: 1;
+  }
+}
+

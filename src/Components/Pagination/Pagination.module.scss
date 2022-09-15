@@ -1,0 +1,20 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.pagination {
+  position: relative;
+  top: -50px;
+  margin-left: 3%;
+  width: 120px;
+
+  .pageCounter {
+    text-align: left;
+    line-height: 18px;
+    @include text($mainTitleColor, $headerFont, 0.7rem, 400);
+    margin-bottom: 20px;
+  }
+
+  .btnContainer {
+    @include flexStyle(row, space-between, center);
+  }
+}

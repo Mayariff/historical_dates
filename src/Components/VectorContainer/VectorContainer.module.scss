@@ -1,0 +1,39 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.container {
+  background-color: $backgroundColor;
+  width: 100vw;
+
+  .content_container {
+    margin-left: 16.6%;
+    width: 75%;
+    position: relative;
+
+    &:before {
+      @include pseudoEl();
+      @include vector(0, 0);
+    }
+
+    &:after {
+      @include pseudoEl();
+      @include vector(100%, 0);
+    }
+
+    .inner_content_container {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+
+      &:before {
+        @include pseudoEl();
+        @include vector(50%, 0);
+      }
+
+      &:after {
+        @include pseudoEl();
+        @include vectorHorizon(0, $heightCenter);
+      }
+    }
+  }
+}

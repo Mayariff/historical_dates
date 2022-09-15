@@ -1,0 +1,86 @@
+@import "variables";
+@mixin noneBaseStyle(){
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+@mixin flexStyle($dir, $jContent, $Items){
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jContent;
+  align-items: $Items;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+@mixin text($color,$fontFamily,$fontSize, $fontWeight) {
+  color: $color;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  font-weight: $fontWeight ;
+  font-style: normal;
+}
+
+@mixin gradient(){
+  border-left: 5px solid transparent;
+  -moz-border-image: -moz-linear-gradient(left, $secondTitleColor 0%, $accent2Color 100%);
+  -webkit-border-image: -webkit-linear-gradient(left, $secondTitleColor 0%, $accent2Color 100%);
+  border-image: linear-gradient(to bottom, $secondTitleColor 0%, $accent2Color 90%);
+  border-image-slice: 1;
+}
+
+@mixin vector($left,$top){
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: $left;
+  top: $top;
+  border-left: 1px solid $borderColor;
+}
+@mixin vectorHorizon($left,$top){
+  position: absolute;
+  width: 100%;
+  height: 0;
+  left: $left;
+  top: $top;
+  border-top: 1px solid $borderColor;
+}
+
+@mixin pseudoEl(){
+  content: '';
+  height: 100%;
+  width: 100%;
+}
+
+@mixin  arrow($width, $height, $widthBorder, $color, $rotate,  $top,$right){
+  content: '';
+  position: absolute;
+  width: $width;
+  height: $height;
+  border-left: $widthBorder solid $color;
+  border-bottom: $widthBorder solid $color;
+  transform: rotate($rotate);
+  z-index: 3;
+  top: $top;
+  right: $right;
+}
+
+@mixin circle($width){
+  width: $width;
+  height: $width;
+  margin-top: $heightCenter - $width/2;
+  border-radius: 50%;
+  border: 1px solid rgba(66, 86, 122, 0.2);
+}
+
+@mixin position($position, $top, $left){
+  position: $position;
+  top:$top;
+  left: $left;
+}
+@mixin sizeBlock ($width, $height){
+  width:$width;
+  height: $height;
+}

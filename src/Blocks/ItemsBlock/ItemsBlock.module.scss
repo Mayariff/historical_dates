@@ -1,0 +1,12 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.container{
+ @include flexStyle(column, space-between, center);
+ .leftContainer {
+  @include sizeBlock(100%, 100px);
+  @include flexStyle(row, start, start);
+  position: relative;
+  padding-left: 10px;
+ }
+}

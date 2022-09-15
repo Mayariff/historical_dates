@@ -1,0 +1,34 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.btn {
+  @include sizeBlock(40px, 40px);
+  border-radius: 50%;
+  border-color: transparent;
+  position: absolute;
+  bottom: 158px;
+  z-index: 1;
+  background: #FFFFFF;
+  box-shadow: 0 0 15px rgba(56, 119, 238, 0.1);
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.prev {
+  left: 8px;
+
+  &:before {
+    @include arrow(6px, 6px, 3px, $secondTitleColor, 45deg, 14px, 13px);
+  }
+}
+
+.next {
+  right: 8px;
+
+  &:before {
+    @include arrow(6px, 6px, 3px, $secondTitleColor, -135deg, 14px, 15px);
+  }
+}

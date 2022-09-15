@@ -1,0 +1,20 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+
+.container {
+  width: 100%;
+  @include flexStyle(column, center, center);
+
+  .circle {
+    position: relative;
+    @include circle(530px);
+    @media screen and (max-width: 1428px) {
+      @include circle(480px);
+    }
+    @media screen and (max-width: 1018px) {
+      @include circle(360px);
+
+    }
+  }
+}

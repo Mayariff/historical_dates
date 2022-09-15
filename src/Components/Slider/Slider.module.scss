@@ -1,0 +1,27 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.container {
+  width: 100%;
+  cursor: grab;
+  position: relative;
+    .itemContainer {
+      max-width: 400px;
+      min-width: 200px;
+      min-height: 90px;
+      margin: 0 46px 70px;
+      .title {
+        @include text($secondTitleColor, $mainFont, 1.25rem, 400);
+        line-height: 120%;
+        text-transform: uppercase;
+        text-align: left;
+        margin-bottom: 15px;
+      }
+      .description {
+        @include text($textColor, $headerFont, 1rem, 400) ;
+        line-height: 150%;
+        text-align: left;
+        margin-bottom: 34px;
+      }
+    }
+}

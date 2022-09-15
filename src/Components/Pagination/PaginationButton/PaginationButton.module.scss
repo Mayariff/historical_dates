@@ -1,0 +1,30 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.btn {
+  @include sizeBlock(50px, 50px);
+  border-radius: 50%;
+  border: 1px solid rgba(66, 86, 122, 0.5);
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.prev {
+  &:before {
+    @include arrow(8px, 8px, 3px, $mainTitleColor, 45deg, 18px, 16px);
+  }
+
+}
+
+.next {
+  &:before {
+    @include arrow(8px, 8px, 3px, $mainTitleColor, -135deg, 18px, 20px);
+  }
+}
+

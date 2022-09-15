@@ -1,0 +1,36 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.mainTitle {
+  position: absolute;
+  top: 400px;
+  @include sizeBlock(973px, 160px);
+  @include flexStyle(row, space-between, center);
+  flex-wrap: nowrap;
+  @media screen and (max-width: 1229px) {
+    width: 100%;
+  }
+
+  span {
+    @include text($accentColor, $headerFont, 10rem, 700);
+    line-height: 80%;
+    text-align: center;
+    letter-spacing: -0.02em;
+
+    &:last-child {
+      color: $accent2Color;
+    }
+
+    @media screen and (max-width: 1229px) {
+      font-size: 9rem;
+    }
+    @media screen and (max-width: 1060px) {
+      font-size: 8rem;
+      line-height: 100%;
+    }
+    @media screen and (max-width: 950px) {
+      font-size: 7rem;
+    }
+  }
+
+}

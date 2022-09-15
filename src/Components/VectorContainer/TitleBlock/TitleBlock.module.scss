@@ -1,0 +1,33 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.divContainer {
+  @include sizeBlock(487px, 134px);
+  @include position(absolute, 170px, 0);
+  padding-left: 78px;
+  @media screen and (max-width: 1162px) {
+    top: 150px;
+  }
+  @media screen and (max-width: 630px) {
+    padding-left: 32px;
+    padding-top: 6px;
+  }
+
+  &:before {
+    content: '';
+    @include vector(0, 10px);
+    @include gradient();
+    height: 120px;
+  }
+
+  .title {
+    @include text($mainTitleColor, $headerFont, 2.8rem, 700) ;
+    line-height: 67px;
+    text-align: left;
+    letter-spacing: -0.01em;
+    @media screen and (max-width: 630px) {
+      font-size: 2.4rem;
+      line-height: 52px;
+    }
+  }
+}

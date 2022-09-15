@@ -13,11 +13,18 @@
   &:disabled {
     opacity: 0.5;
   }
+
+  @media (max-width: 768px) {
+    @include sizeBlock(25px, 25px)
+  }
 }
 
 .prev {
   &:before {
     @include arrow(8px, 8px, 3px, $mainTitleColor, 45deg, 18px, 16px);
+    @media (max-width: 768px) {
+      @include arrow(4px, 4px, 2px, $mainTitleColor, 45deg, 9px, 8px);
+    }
   }
 
 }
@@ -25,6 +32,9 @@
 .next {
   &:before {
     @include arrow(8px, 8px, 3px, $mainTitleColor, -135deg, 18px, 20px);
+    @media (max-width: 768px) {
+      @include arrow(4px, 4px, 2px, $mainTitleColor, -135deg, 9px, 10px);
+    }
   }
 }
 

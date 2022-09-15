@@ -1,12 +1,14 @@
 @import "variables";
-@mixin noneBaseStyle(){
+
+@mixin noneBaseStyle() {
   background: none;
   border: none;
   font: inherit;
   cursor: pointer;
   outline: none;
 }
-@mixin flexStyle($dir, $jContent, $Items){
+
+@mixin flexStyle($dir, $jContent, $Items) {
   display: flex;
   flex-direction: $dir;
   justify-content: $jContent;
@@ -19,11 +21,11 @@
   color: $color;
   font-family: $fontFamily;
   font-size: $fontSize;
-  font-weight: $fontWeight ;
+  font-weight: $fontWeight;
   font-style: normal;
 }
 
-@mixin gradient(){
+@mixin gradient() {
   border-left: 5px solid transparent;
   -moz-border-image: -moz-linear-gradient(left, $secondTitleColor 0%, $accent2Color 100%);
   -webkit-border-image: -webkit-linear-gradient(left, $secondTitleColor 0%, $accent2Color 100%);
@@ -31,15 +33,19 @@
   border-image-slice: 1;
 }
 
-@mixin vector($left,$top){
+@mixin vector($left,$top) {
   position: absolute;
   width: 0;
   height: 100%;
   left: $left;
   top: $top;
   border-left: 1px solid $borderColor;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
-@mixin vectorHorizon($left,$top){
+
+@mixin vectorHorizon($left,$top) {
   position: absolute;
   width: 100%;
   height: 0;
@@ -48,13 +54,13 @@
   border-top: 1px solid $borderColor;
 }
 
-@mixin pseudoEl(){
+@mixin pseudoEl() {
   content: '';
   height: 100%;
   width: 100%;
 }
 
-@mixin  arrow($width, $height, $widthBorder, $color, $rotate,  $top,$right){
+@mixin arrow($width, $height, $widthBorder, $color, $rotate,  $top,$right) {
   content: '';
   position: absolute;
   width: $width;
@@ -67,7 +73,7 @@
   right: $right;
 }
 
-@mixin circle($width){
+@mixin circle($width) {
   width: $width;
   height: $width;
   margin-top: $heightCenter - $width/2;
@@ -75,12 +81,13 @@
   border: 1px solid rgba(66, 86, 122, 0.2);
 }
 
-@mixin position($position, $top, $left){
+@mixin position($position, $top, $left) {
   position: $position;
-  top:$top;
+  top: $top;
   left: $left;
 }
-@mixin sizeBlock ($width, $height){
-  width:$width;
+
+@mixin sizeBlock($width, $height) {
+  width: $width;
   height: $height;
 }

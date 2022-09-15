@@ -1,10 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import s from './EventWheel.module.scss'
-import {periodsInfoType} from "../../data_context";
-import {coordsType, findAllPointsCoords, getRadius} from "../../utils/utils-functions";
-import Point from "./Point/Point";
-import gsap from "gsap";
+import {periodsInfoType} from '../../data_context';
+import {coordsType, findAllPointsCoords, getRadius} from '../../utils/utils-functions';
+import gsap from 'gsap';
 import MotionPathPlugin from 'gsap/MotionPathPlugin'
+import Point from './Point/Point';
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -24,7 +24,6 @@ const EventWheel = ({data, periodsNumbers, currentPage, ...props}: propsType) =>
     const circle = useRef(null)
 
     useEffect(() => {
-
         function findCoords() {
             const radius = circle.current && getRadius(circle.current) || 0
             const points = radius && findAllPointsCoords(periodsNumbers, radius, 0)

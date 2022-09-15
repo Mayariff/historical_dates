@@ -1,12 +1,20 @@
 @import 'src/styles/mixins';
 @import 'src/styles/variables';
 
-.container{
- @include flexStyle(column, space-between, center);
- .leftContainer {
-  @include sizeBlock(100%, 100px);
-  @include flexStyle(row, start, start);
-  position: relative;
-  padding-left: 10px;
- }
+.container {
+  @include flexStyle(column, space-between, center);
+  @media (max-width: 768px) {
+    position: relative;
+  }
+
+  .leftContainer {
+    @include sizeBlock(100%, 100px);
+    @include flexStyle(row, start, start);
+    position: relative;
+    padding-left: 10px;
+    @media (max-width: 768px) {
+      position: static;
+      @include sizeBlock(100%, 54px);
+    }
+  }
 }

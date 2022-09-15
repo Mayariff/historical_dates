@@ -7,7 +7,7 @@ export type coordsType = {
 
 export function findPointCoords(radius: number, rotationDegree: number) {
 
-    const corner = Math.PI / 180 * (rotationDegree- 80)
+    const corner = Math.PI / 180 * (rotationDegree - 80)
     const x = radius + radius * Math.cos(corner)
     const y = radius + radius * Math.sin(corner)
     return {x, y}

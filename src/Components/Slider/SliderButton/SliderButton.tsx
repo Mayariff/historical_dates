@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './SliderButton.module.scss';
-import {useSwiper} from "swiper/react";
+import {useSwiper} from 'swiper/react';
 
 type propsType = React.HTMLProps<HTMLButtonElement> & {
     type: 'next' | 'prev'
@@ -20,7 +20,7 @@ const SliderButton = ({type, changeCurrentPage, hidden, ...props}: propsType) =>
     const style = type === 'next' ? `${s.btn} ${s.next}` : `${s.btn} ${s.prev}`
 
     return (
-        <button onClick={onClickHandler} className={hidden ? `${style} ${s.hidden}` : style} {...props} ></button>
+        <button onClick={onClickHandler} className={hidden ? `${style} ${s.hidden}` : style} {...props} > </button>
     );
 };
 

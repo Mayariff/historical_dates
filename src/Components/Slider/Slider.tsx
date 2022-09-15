@@ -1,27 +1,34 @@
-import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
+import React, {useLayoutEffect, useRef, useState} from 'react';
 import s from './Slider.module.scss'
-import {eventType} from "../../data_context";
-import {Swiper, SwiperSlide, useSwiper} from 'swiper/react';
-import {Navigation, Pagination, Scrollbar} from 'swiper';
+import {eventType} from '../../data_context';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Navigation, Pagination, Scrollbar, Thumbs} from 'swiper';
 // Import Swiper styles
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
+
+import './sliderPagination.scss'
 import SliderButton from "./SliderButton/SliderButton";
-import gsap from "gsap";
+import gsap from 'gsap';
+
 
 type propsType = {
     items: eventType[]
     currentPage?: number
+    isDesctopVertion: boolean
 }
 
-const Slider = ({items, ...props}: propsType) => {
+
+const Slider = ({items, isDesctopVertion, ...props}: propsType) => {
 
     const [currentPage, setCurrentPage] = useState(1)
     let pageNumbers = Math.ceil(items.length / 3)
     const clickNext = () => setCurrentPage(currentPage - 1)
     const clickPrev = () => setCurrentPage(currentPage + 1)
+
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     const slider = useRef(null)
 
@@ -40,23 +47,17 @@ const Slider = ({items, ...props}: propsType) => {
         }
     }, [items])
 
+
     return (
         <div className={s.container} ref={slider}>
             <Swiper
-                modules={[Navigation, Pagination, Scrollbar]}
-                slidesPerView={3}
-                //spaceBetween={80}
-                //onSlideChange={() => console.log('slide change')}
-                //onSwiper={(swiper) => console.log(swiper)}
-
-                //pagination={{clickable: true}}
-                /*  navigation={{
-                      nextEl: '.bannerNext',
-                      prevEl: '.banner-slider-prev',
-                  }}*/
-
-            >
-                <SliderButton type={'prev'} changeCurrentPage={clickNext} hidden={currentPage === 1}/>
+                modules={[Navigation, Pagination, Scrollbar, Thumbs]}
+                slidesPerView={isDesctopVertion ? 3 : 2}
+                spaceBetween={20}
+                thumbs={{swiper: thumbsSwiper}}
+                pagination={!isDesctopVertion}>
+                {isDesctopVertion &&
+                    <SliderButton type={'prev'} changeCurrentPage={clickNext} hidden={currentPage === 1}/>}
 
                 {items.map(i => <SwiperSlide key={i.eventId}>
                     <div className={s.itemContainer}>
@@ -64,7 +65,8 @@ const Slider = ({items, ...props}: propsType) => {
                         <p className={s.description}>{i.eventDescription}</p>
                     </div>
                 </SwiperSlide>)}
-                <SliderButton type={'next'} changeCurrentPage={clickPrev} hidden={currentPage > pageNumbers - 1}/>
+                {isDesctopVertion &&
+                    <SliderButton type={'next'} changeCurrentPage={clickPrev} hidden={currentPage > pageNumbers - 1}/>}
             </Swiper>
 
         </div>

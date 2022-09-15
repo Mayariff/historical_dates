@@ -1,6 +1,6 @@
 import React, {useId} from 'react';
-import s from "./VectorContainer.module.scss";
-import TitleBlock from "./TitleBlock/TitleBlock";
+import s from './VectorContainer.module.scss';
+import TitleBlock from './TitleBlock/TitleBlock';
 
 type propsType = {
     title?: string

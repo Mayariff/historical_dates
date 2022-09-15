@@ -1,7 +1,7 @@
 import React, {MouseEventHandler, useEffect, useRef} from 'react';
-import s from "./Point.module.scss";
-import {coordsType} from "../../../utils/utils-functions";
-import gsap from "gsap";
+import s from './Point.module.scss';
+import {coordsType} from '../../../utils/utils-functions';
+import gsap from 'gsap';
 
 
 type propsType = {
@@ -32,8 +32,8 @@ const Point = ({coords, numberPeriod, changePeriod, currentPeriodNumber, categor
     const active = numberPeriod === currentPeriodNumber
     const aria = useRef(null)
 
-   useEffect(() => {
-     const anim = gsap.to(aria.current, {
+    useEffect(() => {
+        const anim = gsap.to(aria.current, {
             rotate: '-=360',
             duration: 3,
             ease: 'power1.inOut',
@@ -44,7 +44,7 @@ const Point = ({coords, numberPeriod, changePeriod, currentPeriodNumber, categor
         }
     }, [currentPeriodNumber])
 
-   useEffect(() => {
+    useEffect(() => {
         if (active) {
             gsap.to(point.current, style.visible)
         } else {

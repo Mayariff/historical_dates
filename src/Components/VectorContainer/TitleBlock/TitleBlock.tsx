@@ -6,7 +6,7 @@ type propsType = {
     title: string
 }
 
-const TitleBlock = ({title}:propsType) => {
+const TitleBlock = ({title}: propsType) => {
     return (
         <div className={s.divContainer}>
             <h1 className={s.title}>{title}</h1>

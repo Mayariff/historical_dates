@@ -10,6 +10,11 @@
   @media screen and (max-width: 1229px) {
     width: 100%;
   }
+  @media (max-width: 768px) {
+    position: static;
+    height: 73px;
+    width: 273px;
+  }
 
   span {
     @include text($accentColor, $headerFont, 10rem, 700);
@@ -30,6 +35,10 @@
     }
     @media screen and (max-width: 950px) {
       font-size: 7rem;
+    }
+    @media (max-width: 768px) {
+      font-size: 2.8rem;
+      line-height: 72px;
     }
   }
 

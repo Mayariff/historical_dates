@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Pagination.module.scss';
 import {periodsInfoType} from '../../data_context';
-import PaginationButton from "./PaginationButton/PaginationButton";
+import PaginationButton from './PaginationButton/PaginationButton';
 
 
 type propsType = {
@@ -23,7 +23,7 @@ const Pagination = ({currentPage, pagesCount, changePeriod}: propsType) => {
             <div className={s.btnContainer}>
                 <PaginationButton changeCurrentPage={onClickPrev} type={'prev'}
                                   disabled={currentPage === 1}/>
-                <PaginationButton type={"next"} changeCurrentPage={onClickNext}
+                <PaginationButton type={'next'} changeCurrentPage={onClickNext}
                                   disabled={currentPage === pagesCount}/>
             </div>
         </div>

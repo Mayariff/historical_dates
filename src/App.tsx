@@ -18,7 +18,7 @@ function App() {
             zIndex: '1',
             left: clickCoords.pageX,
             top: clickCoords.pageY,
-            border: '3px solid black',
+            border: '3px solid #42567A',
             opacity: '1',
             transition: '0.5s cubic-bezier (.75,-1.27,.3,2.33) transform, .2s cubic-bezier (.75,-1.27,.3,2.33) opacity',
         }, {opacity: '0', delay: 0.1})

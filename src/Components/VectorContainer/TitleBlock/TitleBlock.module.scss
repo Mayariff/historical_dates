@@ -10,8 +10,9 @@
   }
   @media (max-width: 768px) {
     position: static;
-    @include sizeBlock(130px, 100%);
+    @include sizeBlock(130px, 35px);
     padding: 59px 0;
+    margin-bottom: 59px;
   }
 
   &:before {

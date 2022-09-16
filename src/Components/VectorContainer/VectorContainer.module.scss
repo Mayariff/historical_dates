@@ -32,13 +32,15 @@
         @include pseudoEl();
         @include vector(50%, 0);
       }
-
       &:after {
         @include pseudoEl();
         @include vectorHorizon(0, $heightCenter);
         @media (max-width: 768px) {
           top: 293px;
         }
+      }
+      @media (max-width: 768px) {
+        height: 100vh;;
       }
     }
   }

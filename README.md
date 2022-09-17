@@ -5,3 +5,4 @@
 
 Технологии: react, typeScript , SCSS , Swiper (слайдер), gsap (анимация)
 Смотреть на GH-page: https://mayariff.github.io/historical_dates/
+Или: скачать проект-> установить yarn -> команда yarn start  откроет проект в режиме разработки webpack

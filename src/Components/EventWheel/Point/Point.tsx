@@ -26,7 +26,7 @@ const style = {
     }
 }
 
-const Point = ({coords, numberPeriod, changePeriod, currentPeriodNumber, category}: propsType) => {
+const Point = React.memo(({coords, numberPeriod, changePeriod, currentPeriodNumber, category}: propsType) => {
 
     const point = useRef(null)
     const active = numberPeriod === currentPeriodNumber
@@ -90,6 +90,6 @@ const Point = ({coords, numberPeriod, changePeriod, currentPeriodNumber, categor
         </div>
 
     );
-};
+});
 
 export default Point;

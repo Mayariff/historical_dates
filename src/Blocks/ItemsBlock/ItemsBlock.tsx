@@ -13,7 +13,7 @@ type propsType = {
     isDesctopVertion: boolean
 }
 
-const ItemsBlock = ({data, title, isDesctopVertion}: propsType) => {
+const ItemsBlock = React.memo(({data, title, isDesctopVertion}: propsType) => {
 
     const [currentPeriod, setCurrentPeriod] = useState<periodsInfoType>(data[0])
     const [currentPage, setCurrentPage] = useState<number>(1)
@@ -51,7 +51,7 @@ const ItemsBlock = ({data, title, isDesctopVertion}: propsType) => {
         </VectorContainer>
     );
 
-};
+});
 
 
 export default ItemsBlock;

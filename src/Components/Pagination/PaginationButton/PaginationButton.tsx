@@ -7,13 +7,13 @@ type propsType = React.HTMLProps<HTMLButtonElement> & {
     disabled?: boolean
 }
 
-const PaginationButton = ({type, changeCurrentPage, disabled, ...props}: propsType) => {
+const PaginationButton = React.memo( ({type, changeCurrentPage, disabled, ...props}: propsType) => {
 
     const style = type === 'next' ? `${s.btn} ${s.next}` : `${s.btn} ${s.prev}`
 
     return (
         <button onClick={changeCurrentPage} className={style} {...props} disabled={disabled}> </button>
     );
-};
+});
 
 export default PaginationButton;

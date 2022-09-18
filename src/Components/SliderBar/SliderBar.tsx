@@ -9,7 +9,7 @@ type propsType = propsPaginationType & {
     data: Array<periodsInfoType>
 }
 
-const SliderBar = ({currentPage, changePeriod, currentPeriod, data}: propsType) => {
+const SliderBar = React.memo(({currentPage, changePeriod, currentPeriod, data}: propsType) => {
 
     const onClickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
         changePeriod(+e.currentTarget.id)
@@ -25,6 +25,6 @@ const SliderBar = ({currentPage, changePeriod, currentPeriod, data}: propsType) 
                                          onClick={onClickHandler}> </div>)}
         </div>
     );
-};
+});
 
 export default SliderBar;

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import s from './EventWheel.module.scss'
 import {periodsInfoType} from '../../data_context';
 import {coordsType, findAllPointsCoords, getRadius} from '../../utils/utils-functions';
@@ -18,7 +18,7 @@ type propsType = {
 }
 
 
-const EventWheel = ({data, periodsNumbers, currentPage, changePeriod, ...props}: propsType) => {
+const EventWheel = React.memo(({data, periodsNumbers, currentPage, changePeriod, ...props}: propsType) => {
 
     const [radius, setRadius] = useState<number>(0)
     const [pointsCoords, setPointsCoords] = useState<coordsType[]>([])
@@ -36,7 +36,6 @@ const EventWheel = ({data, periodsNumbers, currentPage, changePeriod, ...props}:
         window.addEventListener('resize', findCoords);
         return () => window.removeEventListener('resize', findCoords)
     }, [data])
-
     useEffect(() => {
         const anim = gsap.to(circle.current, {
             rotate: '+=360',
@@ -53,7 +52,7 @@ const EventWheel = ({data, periodsNumbers, currentPage, changePeriod, ...props}:
         <div className={s.container}>
             <div className={s.circle} ref={circle}>
                 {pointsCoords.map((p, index) => <div
-                    key={p.x + p.y + index} className={'shape'}><Point
+                    key={p.x + p.y + index} ><Point
                     numberPeriod={index + 1}
                     key={p.x + p.y + index}
                     coords={p}
@@ -68,6 +67,6 @@ const EventWheel = ({data, periodsNumbers, currentPage, changePeriod, ...props}:
             </div>
         </div>
     );
-};
+});
 
 export default EventWheel;

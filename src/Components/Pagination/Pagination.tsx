@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import s from './Pagination.module.scss';
 import {periodsInfoType} from '../../data_context';
 import PaginationButton from './PaginationButton/PaginationButton';
@@ -11,11 +11,11 @@ export type propsPaginationType = {
     changePeriod: (value: number) => void
 }
 
-const Pagination = ({currentPage, pagesCount, changePeriod}: propsPaginationType) => {
+const Pagination = React.memo(({currentPage, pagesCount, changePeriod}: propsPaginationType) => {
 
 
-    const onClickNext = () => changePeriod(currentPage + 1)
-    const onClickPrev = () => changePeriod(currentPage - 1)
+    const onClickNext = useCallback(() => changePeriod(currentPage + 1),[currentPage])
+    const onClickPrev = useCallback(() => changePeriod(currentPage - 1),[currentPage])
 
     return (
         <div className={s.pagination}>
@@ -28,6 +28,6 @@ const Pagination = ({currentPage, pagesCount, changePeriod}: propsPaginationType
             </div>
         </div>
     );
-};
+});
 
 export default Pagination;

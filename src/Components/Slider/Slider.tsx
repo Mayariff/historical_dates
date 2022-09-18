@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useRef, useState} from 'react';
+import React, {useCallback, useLayoutEffect, useRef, useState} from 'react';
 import s from './Slider.module.scss'
 import {eventType} from '../../data_context';
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -22,12 +22,12 @@ type propsType = {
 }
 
 
-const Slider = ({items, isDesctopVertion, category, ...props}: propsType) => {
+const Slider = React.memo(({items, isDesctopVertion, category, ...props}: propsType) => {
 
     const [currentPage, setCurrentPage] = useState(1)
     let pageNumbers = Math.ceil(items.length / 3)
-    const clickNext = () => setCurrentPage(currentPage - 1)
-    const clickPrev = () => setCurrentPage(currentPage + 1)
+    const clickNext = useCallback(() => setCurrentPage(currentPage - 1), [currentPage])
+    const clickPrev = useCallback(() => setCurrentPage(currentPage + 1),[currentPage])
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -74,7 +74,7 @@ const Slider = ({items, isDesctopVertion, category, ...props}: propsType) => {
 
         </div>
     )
-};
+});
 
 export default Slider;
 

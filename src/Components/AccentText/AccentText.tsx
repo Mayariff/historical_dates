@@ -7,7 +7,7 @@ type propsType = {
     secondWord: string | number
 }
 
-const AccentText = ({firstWord, secondWord}: propsType) => {
+const AccentText = React.memo(({firstWord, secondWord}: propsType) => {
 
     const first = useRef(null)
     const second = useRef(null)
@@ -33,6 +33,6 @@ const AccentText = ({firstWord, secondWord}: propsType) => {
             <span ref={first}> </span> <span ref={second}> </span>
         </h2>
     );
-};
+});
 
 export default AccentText;

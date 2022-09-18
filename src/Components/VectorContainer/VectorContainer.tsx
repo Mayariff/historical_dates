@@ -7,7 +7,7 @@ type propsType = {
     children: React.ReactNode
 }
 
-const VectorContainer = ({children, title}: propsType) => {
+const VectorContainer = React.memo( ({children, title}: propsType) => {
     const id = useId()
 
     return (
@@ -20,6 +20,6 @@ const VectorContainer = ({children, title}: propsType) => {
             </div>
         </div>
     );
-};
+});
 
 export default VectorContainer;

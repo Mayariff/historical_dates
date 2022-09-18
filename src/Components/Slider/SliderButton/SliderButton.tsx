@@ -8,7 +8,7 @@ type propsType = React.HTMLProps<HTMLButtonElement> & {
     hidden?: boolean
 }
 
-const SliderButton = ({type, changeCurrentPage, hidden, ...props}: propsType) => {
+const SliderButton = React.memo( ({type, changeCurrentPage, hidden, ...props}: propsType) => {
     const swiper = useSwiper();
 
     const onClickHandler: React.MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -22,6 +22,6 @@ const SliderButton = ({type, changeCurrentPage, hidden, ...props}: propsType) =>
     return (
         <button onClick={onClickHandler} className={hidden ? `${style} ${s.hidden}` : style} {...props} > </button>
     );
-};
+});
 
 export default SliderButton;
